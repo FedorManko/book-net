@@ -1,0 +1,45 @@
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:book_social_network}
+    username: username
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  mail:
+    host: localhost
+    port: 1025
+    username: ali
+    password: ali
+    properties:
+      mail:
+        smtp:
+          trust: "*"
+        auth: true
+        starttls:
+          enabled: true
+        connectiontimeout: 5000
+        timeout: 3000
+        writetimeout: 5000
+
+application:
+  security:
+    jwt:
+      secret-key: dG41NW45b3huNmR5cjY1M3VuMHI0eGZqa24ydWN0ZzBqb3k3anpjcjJ2cXJpdHo3bzVkYnZ5cW52OGhiYzF6aDhjMm1mOGw0dTE3Z2lhZDZpOWt6cW10cTdzMnE4cWc0NXYwN2k5Z2x1Nmd1NGd0dDBudmJmZXhqb283Y2l2NWo=
+      expiration: 86400000
+  mailing:
+    frontend:
+      activation-url: http://localhost:4200/activate-account
+  file:
+    uploads:
+      photos-output-path: ./upload
+server:
+  port: 8088
